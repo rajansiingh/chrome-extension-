@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "My Email",
+  "description": "This extension fills your email in facebook.com",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "assets/icon.png",
+    "default_popup": "extension.html",
+    "default_title":"Email filer"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": [ "background.js" ]
+  },
+  "permissions": [
+    "background",
+    "tabs",
+    "<all_urls>"
+  ],
+  "content_scripts": [ {
+    "all_frames": true,
+    "js": ["browser_console.js"],
+    "matches": [ "<all_urls>"],
+    "run_at": "document_start"
+ }]
+}
